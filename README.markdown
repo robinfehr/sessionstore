@@ -1,6 +1,6 @@
 # Introduction
 
-[![Build Status](https://secure.travis-ci.org/adrai/session.png)](http://travis-ci.org/adrai/session)
+[![Build Status](https://secure.travis-ci.org/adrai/sessionstore.png)](http://travis-ci.org/adrai/session)
 
 Sessionstore is a node.js module for multiple databases. It can be very useful if you work with express or connect.
 
