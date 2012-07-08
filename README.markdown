@@ -58,7 +58,8 @@ Currently these databases are supported:
 
 1. inMemory
 2. mongoDb ([node-mongodb-native] (https://github.com/mongodb/node-mongodb-native))
-2. nStore ([nstore] (https://github.com/creationix/nstore))
+3. nStore ([nstore] (https://github.com/creationix/nstore))
+4. couchDb ([cradle] (https://github.com/cloudhead/cradle))
 
 # License
 
