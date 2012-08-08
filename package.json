@@ -1,7 +1,7 @@
 {
   "author": "adrai",
   "name": "sessionstore",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": false,
   "main": "index.js",
   "engines": {
@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "async": ">= 0.1.18",
-    "lodash": ">= 0.4.2"
+    "lodash": ">= 0.5.x"
   },
   "devDependencies": {
     "mongodb": ">= 0.0.1",
@@ -34,6 +34,15 @@
     "type": "git",
     "url": "git@github.com:adrai/sessionstore.git"
   },
+  "bugs": {
+    "url": "https://github.com/adrai/sessionstore/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/adrai/sessionstore/master/licence"
+    }
+  ],
   "scripts" : { 
     "test" : "mocha"
   } 
