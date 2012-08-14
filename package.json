@@ -21,7 +21,7 @@
     "expect.js": ">= 0.1.2"
   },
   "description": "Sessionstore is a node.js module for multiple databases. It can be very useful if you work with express or connect.",
-  "keywords"    : [
+  "keywords": [
     "orm",
     "mongodb",
     "couchdb",
