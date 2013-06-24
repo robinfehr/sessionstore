@@ -60,6 +60,7 @@ Currently these databases are supported:
 2. mongoDb ([node-mongodb-native] (https://github.com/mongodb/node-mongodb-native))
 3. nStore ([nstore] (https://github.com/creationix/nstore))
 4. couchDb ([cradle] (https://github.com/cloudhead/cradle))
+5. tingoDb ([tingodb] (https://github.com/sergeyksv/tingodb))
 
 # License
 
