@@ -57,14 +57,14 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
 Currently these databases are supported:
 
 1. inMemory
-2. mongoDb ([node-mongodb-native] (https://github.com/mongodb/node-mongodb-native))
-3. nStore ([nstore] (https://github.com/creationix/nstore))
-4. couchDb ([cradle] (https://github.com/cloudhead/cradle))
-5. tingoDb ([tingodb] (https://github.com/sergeyksv/tingodb))
+2. mongodb ([node-mongodb-native] (https://github.com/mongodb/node-mongodb-native))
+3. nstore ([nstore] (https://github.com/creationix/nstore))
+4. couchdb ([cradle] (https://github.com/cloudhead/cradle))
+5. tingodb ([tingodb] (https://github.com/sergeyksv/tingodb))
 
 # License
 
-Copyright (c) 2013 Adriano Raiano
+Copyright (c) 2014 Adriano Raiano
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
