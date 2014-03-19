@@ -28,6 +28,7 @@ describe('SessionStore', function() {
                     var store = sessionStore.createSessionStore({ type: 'redis' });
 
                     store.client.on('connect', function(){
+                        // #set()
                         store.set('123', { cookie: { maxAge: 2000 }, name: 'joe' }, function(err, result){
                             expect(err).to.be(null);
                             expect(result).to.be('OK');
@@ -36,13 +37,14 @@ describe('SessionStore', function() {
                             store.get('123', function(err, data){
                                 expect(data.name).to.be('joe');
 
-                                // #set null
+                                // #set()
                                 store.set('123', { cookie: { maxAge: 2000 }, name: 'jimmy' }, function(err, ok){
 
                                     // #get()
                                     store.get('123', function(err, data){
                                         expect(data.name).to.be('jimmy');
 
+                                        // #destroy()
                                         store.destroy('123', function(err, result){
                                             expect(err).to.be(null);
                                             expect(result).to.be(1);
