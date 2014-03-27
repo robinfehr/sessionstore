@@ -61,6 +61,7 @@ Currently these databases are supported:
 3. nstore ([nstore] (https://github.com/creationix/nstore))
 4. couchdb ([cradle] (https://github.com/cloudhead/cradle))
 5. tingodb ([tingodb] (https://github.com/sergeyksv/tingodb))
+6. redis ([redis] (https://github.com/mranney/node_redis))
 
 # License
 

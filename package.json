@@ -1,7 +1,7 @@
 {
   "author": "adrai",
   "name": "sessionstore",
-  "version": "0.2.8",
+  "version": "0.3.0",
   "private": false,
   "main": "index.js",
   "engines": {
@@ -17,7 +17,7 @@
   "devDependencies": {
     "mongodb": ">= 0.0.1",
     "tingodb": ">= 0.0.1",
-    "redis": "~0.10.1",
+    "redis": ">= 0.10.1",
     "express": ">= 2.5.0",
     "mocha": ">= 1.0.1",
     "expect.js": ">= 0.1.2"
@@ -27,6 +27,9 @@
     "orm",
     "mongodb",
     "couchdb",
+    "nstore",
+    "tingodb",
+    "redis",
     "memory",
     "database",
     "host"
