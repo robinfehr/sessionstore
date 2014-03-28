@@ -1,6 +1,6 @@
 # Introduction
 
-[![Build Status](https://secure.travis-ci.org/adrai/sessionstore.png)](http://travis-ci.org/adrai/session)
+[![Build Status](https://secure.travis-ci.org/adrai/sessionstore.svg)](http://travis-ci.org/adrai/sessionstore)
 
 Sessionstore is a node.js module for multiple databases. It can be very useful if you work with express or connect.
 
@@ -52,6 +52,20 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
         })
     }));
 
+## Connecting to redis
+
+    var sessionstore = require('sessionstore');
+
+    var express = require('express');
+    var app = express();
+
+    app.use(express.session({
+        store: sessionstore.createSessionStore({
+            type: 'redis',
+            host: 'localhost',         // optional
+            port: 6379               // optional
+        })
+    }));
 
 # Database Support
 Currently these databases are supported:
