@@ -63,7 +63,22 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
         store: sessionstore.createSessionStore({
             type: 'redis',
             host: 'localhost',         // optional
-            port: 6379               // optional
+            port: 6379                 // optional
+        })
+    }));
+
+## Connecting to memcached
+
+    var sessionstore = require('sessionstore');
+
+    var express = require('express');
+    var app = express();
+
+    app.use(express.session({
+        store: sessionstore.createSessionStore({
+            type: 'memcached',
+            host: 'localhost',         // optional
+            port: 11211                // optional
         })
     }));
 
@@ -76,6 +91,7 @@ Currently these databases are supported:
 4. couchdb ([cradle] (https://github.com/cloudhead/cradle))
 5. tingodb ([tingodb] (https://github.com/sergeyksv/tingodb))
 6. redis ([redis] (https://github.com/mranney/node_redis))
+7. memcached ([memjs] (https://github.com/alevy/memjs))
 
 # License
 

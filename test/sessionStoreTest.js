@@ -18,16 +18,14 @@ describe('SessionStore', function() {
 				});
 			});
 
-            describe('an existing db implementation of redis', function() {
+            describe('an existing db implementation of redis', function(done) {
                 it('it should return a new store', function() {
                     var store = sessionStore.createSessionStore({ type: 'redis' });
                     expect(store).to.be.a('object');
                 });
 
                 it('it should set and get a session', function() {
-                    var store = sessionStore.createSessionStore({ type: 'redis' });
-
-                    store.client.on('connect', function(){
+                    sessionStore.createSessionStore({ type: 'redis' }, function(err, store){
                         // #set()
                         store.set('123', { cookie: { maxAge: 2000 }, name: 'joe' }, function(err, result){
                             expect(err).to.be(null);
@@ -48,12 +46,45 @@ describe('SessionStore', function() {
                                         store.destroy('123', function(err, result){
                                             expect(err).to.be(null);
                                             expect(result).to.be(1);
+                                            done();
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
 
-                                            console.log('done');
+            describe('an existing db implementation of memcached', function(done) {
+                it('it should return a new store', function() {
+                    var store = sessionStore.createSessionStore({ type: 'memcached' });
+                    expect(store).to.be.a('object');
+                });
 
-//                                            store.client.end();
-//
-//                                            console.log('done');
+                it('it should set and get a session', function() {
+                    sessionStore.createSessionStore({ type: 'memcached' }, function(err, store) {
+                        // #set()
+                        store.set('123', { cookie: { maxAge: 2000 }, name: 'joe' }, function(err, result){
+                            expect(err).to.be(null);
+                            expect(result).to.be('OK');
+
+                            // #get()
+                            store.get('123', function(err, data){
+                                expect(data.name).to.be('joe');
+
+                                // #set()
+                                store.set('123', { cookie: { maxAge: 2000 }, name: 'jimmy' }, function(err, ok){
+
+                                    // #get()
+                                    store.get('123', function(err, data){
+                                        expect(data.name).to.be('jimmy');
+
+                                        // #destroy()
+                                        store.destroy('123', function(err, result){
+                                            expect(err).to.be(null);
+                                            expect(result).to.be(1);
+                                            done();
                                         });
                                     });
                                 });

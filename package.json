@@ -1,7 +1,7 @@
 {
   "author": "adrai",
   "name": "sessionstore",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": false,
   "main": "index.js",
   "engines": {
@@ -15,12 +15,13 @@
     "lodash": ">= 0.5.x"
   },
   "devDependencies": {
-    "mongodb": ">= 0.0.1",
-    "tingodb": ">= 0.0.1",
-    "redis": ">= 0.10.1",
+    "expect.js": ">= 0.1.2",
     "express": ">= 2.5.0",
+    "memjs": ">= 0.8.4",
     "mocha": ">= 1.0.1",
-    "expect.js": ">= 0.1.2"
+    "mongodb": ">= 0.0.1",
+    "redis": ">= 0.10.1",
+    "tingodb": ">= 0.0.1"
   },
   "description": "Sessionstore is a node.js module for multiple databases. It can be very useful if you work with express or connect.",
   "keywords": [
@@ -48,7 +49,7 @@
       "url": "https://raw.github.com/adrai/sessionstore/master/licence"
     }
   ],
-  "scripts" : { 
-    "test" : "mocha"
-  } 
+  "scripts": {
+    "test": "mocha"
+  }
 }

@@ -2,6 +2,7 @@ before_script: "npm install"
 
 services:
   - redis-server
+  - memcached
 
 language: node_js
 node_js:
