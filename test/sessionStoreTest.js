@@ -83,7 +83,7 @@ describe('SessionStore', function() {
                                         // #destroy()
                                         store.destroy('123', function(err, result){
                                             expect(err).to.be(null);
-                                            expect(result).to.be(1);
+                                            expect(result).to.be.ok();
                                             done();
                                         });
                                     });
