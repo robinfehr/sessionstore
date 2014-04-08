@@ -67,7 +67,7 @@ describe('SessionStore', function() {
                         // #set()
                         store.set('123', { cookie: { maxAge: 2000 }, name: 'joe' }, function(err, result){
                             expect(err).to.be(null);
-                            expect(result).to.be('OK');
+                            expect(result).to.be.ok();
 
                             // #get()
                             store.get('123', function(err, data){
