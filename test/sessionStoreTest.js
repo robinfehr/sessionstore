@@ -70,7 +70,7 @@ describe('SessionStore', function() {
                             expect(result).to.be.ok();
 
                             // #get()
-                            store.get('123', function(err, data){
+                            store.get('123', function(err, data) {
                                 expect(data.name).to.be('joe');
 
                                 // #set()
