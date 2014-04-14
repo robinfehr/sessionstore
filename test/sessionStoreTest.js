@@ -27,13 +27,13 @@ describe('SessionStore', function() {
 				});
 			});
 
-            describe('an existing db implementation of redis', function(done) {
+            describe('an existing db implementation of redis', function() {
                 it('it should return a new store', function() {
                     var store = sessionStore.createSessionStore({ type: 'redis' });
                     expect(store).to.be.a('object');
                 });
 
-                it('it should set and get a session', function() {
+                it('it should set and get a session', function(done) {
                     sessionStore.createSessionStore({ type: 'redis' }, function(err, store){
                         // #set()
                         store.set('123', { cookie: { maxAge: 2000 }, name: 'joe' }, function(err, result){
@@ -66,13 +66,13 @@ describe('SessionStore', function() {
                 });
             });
 
-            describe('an existing db implementation of memcached', function(done) {
+            describe('an existing db implementation of memcached', function() {
                 it('it should return a new store', function() {
                     var store = sessionStore.createSessionStore({ type: 'memcached' });
                     expect(store).to.be.a('object');
                 });
 
-                it('it should set and get a session', function() {
+                it('it should set and get a session', function(done) {
                     sessionStore.createSessionStore({ type: 'memcached' }, function(err, store) {
                         // #set()
                         store.set('123', { cookie: { maxAge: 2000 }, name: 'joe' }, function(err, result){
