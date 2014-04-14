@@ -3,7 +3,7 @@ var expect = require('expect.js'),
 
 describe('SessionStore', function() {
     describe('calling library.getExpressSession()', function() {
-        it('should return a valid session object', function(){
+        it('should return a valid session function', function(){
             var library = require('../lib/library');
             var session = library.getExpressSession();
 
