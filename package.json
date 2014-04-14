@@ -17,6 +17,7 @@
   "devDependencies": {
     "expect.js": ">= 0.1.2",
     "express": ">= 2.5.0",
+    "express-session": ">= 1.0.0",
     "memjs": ">= 0.8.4",
     "mocha": ">= 1.0.1",
     "mongodb": ">= 0.0.1",
