@@ -30,10 +30,46 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
 
     app.use(express.session({
         store: sessionstore.createSessionStore({
-            type: 'mongoDb',
+            type: 'mongodb',
             host: 'localhost',         // optional
             port: 27017,               // optional
             dbName: 'sessionDb',       // optional
+            collectionName: 'sessions',// optional
+            reapInterval: 600000,      // optional
+            maxAge: 1000 * 60 * 60 * 2 // optional
+        })
+    }));
+
+## Connecting to tingodb
+
+    var sessionstore = require('sessionstore');
+
+    var express = require('express');
+    var app = express();
+
+    app.use(express.session({
+        store: sessionstore.createSessionStore({
+            type: 'tingodb',
+            dbPath: __dirname + '/',   // optional
+            collectionName: 'sessions',// optional
+            reapInterval: 600000,      // optional
+            maxAge: 1000 * 60 * 60 * 2 // optional
+        })
+    }));
+
+## Connecting to couchdb
+
+    var sessionstore = require('sessionstore');
+
+    var express = require('express');
+    var app = express();
+
+    app.use(express.session({
+        store: sessionstore.createSessionStore({
+            type: 'couchdb',
+            host: 'http://localhost',  // optional
+            port: 5984,                // optional
+            dbName: 'express-sessions',// optional
             collectionName: 'sessions' // optional
         })
     }));
@@ -47,8 +83,9 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
 
     app.use(express.session({
         store: sessionstore.createSessionStore({
-            type: 'nStore',
-            dbFile: __dirname + '/sessions.db'  //optional
+            type: 'nstore',
+            dbFile: __dirname + '/sessions.db',  //optional
+            maxAge: 3600000           //optional
         })
     }));
 
@@ -63,7 +100,9 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
         store: sessionstore.createSessionStore({
             type: 'redis',
             host: 'localhost',         // optional
-            port: 6379                 // optional
+            port: 6379,                // optional
+            prefix: 'sess',            // optional
+            ttl: 804600                // optional
         })
     }));
 
@@ -78,7 +117,12 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
         store: sessionstore.createSessionStore({
             type: 'memcached',
             host: 'localhost',         // optional
-            port: 11211                // optional
+            port: 11211,               // optional
+            prefix: 'sess',            // optional
+            expires: 80,               // optional
+            retries: 2,                // optional
+            failover: false,           // optional
+            failoverTime: 60           // optional
         })
     }));
 
