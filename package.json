@@ -1,7 +1,7 @@
 {
   "author": "adrai",
   "name": "sessionstore",
-  "version": "0.2.7",
+  "version": "0.3",
   "private": false,
   "main": "index.js",
   "engines": {
@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "async": ">= 0.1.18",
-    "lodash": ">= 0.5.x"
+    "lodash": ">= 0.5.x",
+    "express-session": "1.x"
   },
   "devDependencies": {
     "mongodb": ">= 0.0.1",
