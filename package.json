@@ -1,7 +1,7 @@
 {
   "author": "adrai",
   "name": "sessionstore",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "private": false,
   "main": "index.js",
   "engines": {
