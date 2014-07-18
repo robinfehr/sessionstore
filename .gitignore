@@ -12,3 +12,6 @@ $ cat .gitignore
 .idea
 node_modules
 node_modules/**/*
+
+*.tingo
+*.db

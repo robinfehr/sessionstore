@@ -2,115 +2,271 @@ var expect = require('expect.js'),
     sessionStore = require('../lib/sessionstore');
 
 describe('SessionStore', function() {
-    describe('calling library.getExpressSession()', function() {
-        it('should return a valid session function', function(){
-            var library = require('../lib/library');
-            var session = library.getExpressSession();
 
-            expect(session).to.be.a('function');
-        });
+  describe('requiring sessionInterface', function() {
+
+    it('it should return a valid session function', function() {
+
+      var session = require('../lib/sessionInterface');
+      expect(session).to.be.a('function');
+
     });
 
-	describe('calling createSessionStore', function() {
-		describe('without options', function() {
-			it('it should return with the in memory store', function() {
-				var ss = sessionStore.createSessionStore();
-				expect(ss).to.be.a('object');
-			});
-		});
+  });
 
-		describe('with options containing a type property with the value of', function() {
-			describe('an existing db implementation of mongoDb', function() {
-				it('it should return a new store', function() {
-					var ss = sessionStore.createSessionStore({ type: 'mongoDb' });
-					expect(ss).to.be.a('object');
-				});
-			});
+  describe('calling createSessionStore', function() {
 
-            describe('an existing db implementation of redis', function() {
-                it('it should return a new store', function() {
-                    var store = sessionStore.createSessionStore({ type: 'redis' });
-                    expect(store).to.be.a('object');
-                });
+    describe('without options', function() {
 
-                it('it should set and get a session', function(done) {
-                    sessionStore.createSessionStore({ type: 'redis' }, function(err, store){
-                        // #set()
-                        store.set('123', { cookie: { maxAge: 2000 }, name: 'joe' }, function(err, result){
-                            expect(err).to.be(null);
-                            expect(result).to.be('OK');
+      it('it should return with the in memory store', function() {
 
-                            // #get()
-                            store.get('123', function(err, data){
-                                expect(data.name).to.be('joe');
+        var ss = sessionStore.createSessionStore();
+        expect(ss).to.be.a('object');
 
-                                // #set()
-                                store.set('123', { cookie: { maxAge: 2000 }, name: 'jimmy' }, function(err, ok){
+      });
 
-                                    // #get()
-                                    store.get('123', function(err, data){
-                                        expect(data.name).to.be('jimmy');
+    });
 
-                                        // #destroy()
-                                        store.destroy('123', function(err, result){
-                                            expect(err).to.be(null);
-                                            expect(result).to.be(1);
+    describe('with options of a non existing db implementation', function() {
 
-                                            done();
-                                        });
-                                    });
-                                });
-                            });
-                        });
-                    });
-                });
+      it('it should throw an error', function() {
+        expect(function() {
+          sessionStore.createSessionStore({ type: 'strangeDb' });
+        }).to.throwError();
+      });
+
+      it('it should callback with an error', function(done) {
+        expect(function() {
+          sessionStore.createSessionStore({ type: 'strangeDb' }, function(err) {
+            expect(err).to.be.ok();
+            done();
+          });
+        }).to.throwError();
+      });
+      
+    });
+
+    describe('with options containing a type property with the value of', function() {
+
+      var types = ['inmemory', 'mongodb', 'tingodb', 'redis', 'memcached', 'couchdb'];
+
+      types.forEach(function(type) {
+
+        describe('"' + type + '"', function() {
+
+          var ss;
+
+          describe('without callback', function() {
+
+            afterEach(function(done) {
+              ss.disconnect(done);
+            });
+          
+            it('it should return with the correct store', function() {
+
+              ss = sessionStore.createSessionStore({ type: type });
+              expect(ss).to.be.a('object');
+              expect(ss.set).to.be.a('function');
+              expect(ss.get).to.be.a('function');
+              expect(ss.destroy).to.be.a('function');
+              expect(ss.clear).to.be.a('function');
+              expect(ss.length).to.be.a('function');
+              expect(ss.connect).to.be.a('function');
+              expect(ss.disconnect).to.be.a('function');
+
             });
 
-            describe('an existing db implementation of memcached', function() {
-                it('it should return a new store', function() {
-                    var store = sessionStore.createSessionStore({ type: 'memcached' });
-                    expect(store).to.be.a('object');
-                });
+            it('it should emit connect', function(done) {
 
-                it('it should set and get a session', function(done) {
-                    sessionStore.createSessionStore({ type: 'memcached' }, function(err, store) {
-                        // #set()
-                        store.set('123', { cookie: { maxAge: 2000 }, name: 'joe' }, function(err, result){
-                            expect(err).to.be(null);
-                            expect(result).to.be.ok();
+              ss = sessionStore.createSessionStore({ type: type });
+              ss.once('connect', done);
 
-                            // #get()
-                            store.get('123', function(err, data) {
-                                expect(data.name).to.be('joe');
-
-                                // #set()
-                                store.set('123', { cookie: { maxAge: 2000 }, name: 'jimmy' }, function(err, ok){
-
-                                    // #get()
-                                    store.get('123', function(err, data){
-                                        expect(data.name).to.be('jimmy');
-
-                                        // #destroy()
-                                        store.destroy('123', function(err, result){
-                                            expect(err).to.be(null);
-                                            expect(result).to.be.ok();
-                                            done();
-                                        });
-                                    });
-                                });
-                            });
-                        });
-                    });
-                });
             });
 
-			describe('a non existing db implementation', function() {
-				it('it should return a new store', function() {
-					var ss = sessionStore.createSessionStore({ type: 'strangeDb' });
+          });
 
-					expect(ss).to.be.a('object');
-				});
-			});
-		});
-	});
+          describe('with callback', function() {
+
+            afterEach(function(done) {
+              ss.disconnect(done);
+            });
+          
+            it('it should return with the correct store', function(done) {
+
+              sessionStore.createSessionStore({ type: type }, function(err, resSS) {
+                ss = resSS;
+                expect(ss).to.be.a('object');
+                done();
+              });
+
+            });
+
+          });
+
+          describe('having connected', function() {
+          
+            describe('calling disconnect', function() {
+
+              beforeEach(function(done) {
+                sessionStore.createSessionStore({ type: type }, function(err, resSS) {
+                  ss = resSS;
+                  done();
+                });
+              });
+
+              it('it should callback successfully', function(done) {
+
+                ss.disconnect(function(err) {
+                  expect(err).not.to.be.ok();
+                  done();
+                });
+
+              });
+
+              it('it should emit disconnect', function(done) {
+
+                ss.once('disconnect', done);
+                ss.disconnect();
+                
+              });
+
+            });
+
+            describe('using the store', function() {
+
+              before(function(done) {
+                sessionStore.createSessionStore({ type: type }, function(err, resSS) {
+                  ss = resSS;
+                  done();
+                });
+              });
+
+              it('it should set and get a session', function(done) {
+
+                // #set()
+                ss.set('123', { cookie: { maxAge: 2000 }, name: 'joe' }, function(err) {
+                  expect(err).not.to.be.ok(null);
+
+                  // #get()
+                  ss.get('123', function(err, data) {
+                    expect(err).not.to.be.ok(null);
+                    expect(data.name).to.be('joe');
+
+                    // #set()
+                    ss.set('123', { cookie: { maxAge: 2000 }, name: 'jimmy' }, function(err) {
+                      expect(err).not.to.be.ok(null);
+
+                      // #get()
+                      ss.get('123', function(err, data) {
+                        expect(err).not.to.be.ok(null);
+                        expect(data.name).to.be('jimmy');
+                        done();
+                      });
+
+                    });
+
+                  });
+
+                });
+
+              });
+
+              describe('calling destroy', function() {
+
+                it('it should successfully destroy a session', function(done) {
+
+                  ss.set('123', { cookie: { maxAge: 2000 }, name: 'gugus' }, function(err) {
+
+                    ss.destroy('123', function(err) {
+                      expect(err).not.to.be.ok(null);
+
+                      ss.get('123', function(err, result) {
+                        expect(err).not.to.be.ok(null);
+                        expect(result).not.to.be.ok(null);
+                        done();
+                      });
+
+                    });
+
+                  });
+
+                });
+
+              });
+
+              describe('calling clear', function() {
+
+                it('it should remove all sessions', function(done) {
+
+                  var setJobs = 0,
+                      getJobs = 0;
+
+                  function setJob() {
+                    setJobs++;
+                    if (setJobs === 3) {
+                      check();
+                    }
+                  }
+
+                  function getJob() {
+                    getJobs++;
+                    if (getJobs === 3) {
+                      done();
+                    }
+                  }
+
+                  ss.set('a', { cookie: { maxAge: 2000 }, name: 'a' }, function(err) {
+                    expect(err).not.to.be.ok();
+                    setJob();
+                  });
+
+                  ss.set('b', { cookie: { maxAge: 2000 }, name: 'b' }, function(err) {
+                    expect(err).not.to.be.ok();
+                    setJob();
+                  });
+
+                  ss.set('c', { cookie: { maxAge: 2000 }, name: 'c' }, function(err) {
+                    expect(err).not.to.be.ok();
+                    setJob();
+                  });
+
+                  function check() {
+                    ss.clear(function(err) {
+                      expect(err).not.to.be.ok();
+
+                      ss.get('a', function(err, res) {
+                        expect(err).not.to.be.ok();
+                        expect(res).not.to.be.ok();
+                        getJob();
+                      });
+
+                      ss.get('b', function(err, res) {
+                        expect(err).not.to.be.ok();
+                        expect(res).not.to.be.ok();
+                        getJob();
+                      });
+
+                      ss.get('c', function(err, res) {
+                        expect(err).not.to.be.ok();
+                        expect(res).not.to.be.ok();
+                        getJob();
+                      });
+                    });
+                  }
+
+                });
+
+              });
+
+            });
+
+          });
+
+        });
+      });
+
+    });
+
+  });
+
 });

@@ -1,26 +1,29 @@
 {
   "author": "adrai",
   "name": "sessionstore",
-  "version": "0.4.8",
+  "version": "1.0.0",
   "private": false,
   "main": "index.js",
   "engines": {
-    "node": ">=0.4.12"
+    "node": ">=0.8.0"
   },
   "directories": {
     "lib": "./lib"
   },
   "dependencies": {
-    "async": ">= 0.1.18",
-    "lodash": ">= 0.5.x"
+    "async": "0.9.0",
+    "lodash": "2.4.1",
+    "tolerance": "1.0.0"
   },
   "devDependencies": {
+    "cradle": "^0.6.7",
     "expect.js": ">= 0.1.2",
     "express": ">= 2.5.0",
     "express-session": ">= 1.0.0",
     "memjs": ">= 0.8.4",
     "mocha": ">= 1.0.1",
     "mongodb": ">= 0.0.1",
+    "nstore": "^0.5.2",
     "redis": ">= 0.10.1",
     "tingodb": ">= 0.0.1"
   },

@@ -3,6 +3,8 @@ before_script: "npm install"
 services:
   - redis-server
   - memcached
+  - mongodb
+  - couchdb
 
 language: node_js
 node_js:

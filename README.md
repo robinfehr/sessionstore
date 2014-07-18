@@ -36,7 +36,8 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
             dbName: 'sessionDb',       // optional
             collectionName: 'sessions',// optional
             reapInterval: 600000,      // optional
-            maxAge: 1000 * 60 * 60 * 2 // optional
+            maxAge: 1000 * 60 * 60 * 2,// optional
+            timeout: 10000             // optional
         })
     }));
 
@@ -53,7 +54,8 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
             dbPath: __dirname + '/',   // optional
             collectionName: 'sessions',// optional
             reapInterval: 600000,      // optional
-            maxAge: 1000 * 60 * 60 * 2 // optional
+            maxAge: 1000 * 60 * 60 * 2,// optional
+            timeout: 10000             // optional
         })
     }));
 
@@ -70,22 +72,8 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
             host: 'http://localhost',  // optional
             port: 5984,                // optional
             dbName: 'express-sessions',// optional
-            collectionName: 'sessions' // optional
-        })
-    }));
-
-## Connecting to nstore
-
-    var sessionstore = require('sessionstore');
-
-    var express = require('express');
-    var app = express();
-
-    app.use(express.session({
-        store: sessionstore.createSessionStore({
-            type: 'nstore',
-            dbFile: __dirname + '/sessions.db',  //optional
-            maxAge: 3600000           //optional
+            collectionName: 'sessions',// optional
+            timeout: 10000             // optional
         })
     }));
 
@@ -102,7 +90,8 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
             host: 'localhost',         // optional
             port: 6379,                // optional
             prefix: 'sess',            // optional
-            ttl: 804600                // optional
+            ttl: 804600,               // optional
+            timeout: 10000             // optional
         })
     }));
 
@@ -122,21 +111,40 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
             expires: 80,               // optional
             retries: 2,                // optional
             failover: false,           // optional
-            failoverTime: 60           // optional
+            failoverTime: 60,          // optional
+            timeout: 10000             // optional
         })
     }));
 
+## Catch connect ad disconnect events
+
+    var ss = module.exports.createSessionStore({ type: 'mongodb' }, function(err, ss) {
+        console.log('hello from callback');
+        // use store here...
+        // app.use(express.session({
+        //     store: ss
+        // }));
+    });
+    ss.on('connect', function() {
+        console.log('hello from event');
+        // or here
+        // app.use(express.session({
+        //     store: ss
+        // }));
+    });
+    ss.on('disconnect', function() {
+        console.log('bye');
+    });
 
 # Database Support
 Currently these databases are supported:
 
-1. inMemory
+1. inmemory
 2. mongodb ([node-mongodb-native] (https://github.com/mongodb/node-mongodb-native))
-3. nstore ([nstore] (https://github.com/creationix/nstore))
-4. couchdb ([cradle] (https://github.com/cloudhead/cradle))
-5. tingodb ([tingodb] (https://github.com/sergeyksv/tingodb))
-6. redis ([redis] (https://github.com/mranney/node_redis))
-7. memcached ([memjs] (https://github.com/alevy/memjs))
+3. couchdb ([cradle] (https://github.com/cloudhead/cradle))
+4. tingodb ([tingodb] (https://github.com/sergeyksv/tingodb))
+5. redis ([redis] (https://github.com/mranney/node_redis))
+6. memcached ([memjs] (https://github.com/alevy/memjs))
 
 
 # License
