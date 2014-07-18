@@ -61,6 +61,13 @@ describe('SessionStore', function() {
             afterEach(function(done) {
               ss.disconnect(done);
             });
+
+            it('it should emit connect', function(done) {
+
+              ss = sessionStore.createSessionStore({ type: type });
+              ss.once('connect', done);
+
+            });
           
             it('it should return with the correct store', function() {
 
@@ -73,13 +80,6 @@ describe('SessionStore', function() {
               expect(ss.length).to.be.a('function');
               expect(ss.connect).to.be.a('function');
               expect(ss.disconnect).to.be.a('function');
-
-            });
-
-            it('it should emit connect', function(done) {
-
-              ss = sessionStore.createSessionStore({ type: type });
-              ss.once('connect', done);
 
             });
 
