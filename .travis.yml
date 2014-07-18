@@ -1,4 +1,4 @@
-before_script: "npm install"
+# before_script: "npm install"
 
 services:
   - redis-server
