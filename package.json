@@ -28,10 +28,12 @@
   },
   "description": "Sessionstore is a node.js module for multiple databases. It can be very useful if you work with express or connect.",
   "keywords": [
+    "express",
+    "session",
+    "connect",
     "orm",
     "mongodb",
     "couchdb",
-    "nstore",
     "tingodb",
     "redis",
     "memory",
