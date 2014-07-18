@@ -16,7 +16,7 @@
     "tolerance": "1.0.0"
   },
   "devDependencies": {
-    "cradle": "^0.6.7",
+    "cradle": ">=0.2.7",
     "expect.js": ">= 0.1.2",
     "express": ">= 2.5.0",
     "express-session": ">= 1.0.0",
