@@ -25,6 +25,20 @@ describe('SessionStore', function() {
 
       });
 
+      describe('but with a callback', function() {
+
+        it('it should callback with queue object', function(done) {
+
+          sessionStore.createSessionStore(function(err, ss) {
+            expect(err).not.to.be.ok();
+            expect(ss).to.be.a('object');
+            done();
+          });
+
+        });
+
+      });
+
     });
 
     describe('with options of a non existing db implementation', function() {
