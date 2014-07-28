@@ -1,7 +1,7 @@
 {
   "author": "adrai",
   "name": "sessionstore",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": false,
   "main": "index.js",
   "engines": {
@@ -28,10 +28,12 @@
   },
   "description": "Sessionstore is a node.js module for multiple databases. It can be very useful if you work with express or connect.",
   "keywords": [
+    "express",
+    "session",
+    "connect",
     "orm",
     "mongodb",
     "couchdb",
-    "nstore",
     "tingodb",
     "redis",
     "memory",
