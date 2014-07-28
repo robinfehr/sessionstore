@@ -118,7 +118,7 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
 
 ## Catch connect ad disconnect events
 
-    var ss = module.exports.createSessionStore({ type: 'mongodb' }, function(err, ss) {
+    var ss = sessionstore.createSessionStore({ type: 'mongodb' }, function(err, ss) {
         console.log('hello from callback');
         // use store here...
         // app.use(express.session({
