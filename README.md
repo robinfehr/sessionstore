@@ -136,6 +136,8 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
         console.log('bye');
     });
 
+#[Release notes](https://github.com/adrai/sessionstore/blob/master/releasenotes.md)
+
 # Database Support
 Currently these databases are supported:
 
