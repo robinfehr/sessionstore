@@ -147,7 +147,6 @@ Currently these databases are supported:
 6. memcached ([memjs] (https://github.com/alevy/memjs))
 
 
-
 # License
 
 Copyright (c) 2014 Adriano Raiano
