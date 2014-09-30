@@ -23,7 +23,7 @@
     "express-session": ">= 1.0.0",
     "memjs": ">= 0.8.4",
     "mocha": ">= 1.0.1",
-    "mongodb": ">= 1.0.0",
+    "mongodb": "1.x",
     "redis": ">= 0.10.1",
     "tingodb": ">= 0.0.1"
   },
