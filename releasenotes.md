@@ -1,3 +1,6 @@
+#### v1.0.6
+- added mongodb driver 2.x support
+
 #### v1.0.5
 - replace json-serialize with jsondate
 
