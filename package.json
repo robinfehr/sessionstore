@@ -13,7 +13,7 @@
   "dependencies": {
     "async": "1.0.0",
     "jsondate": "0.0.1",
-    "lodash": "3.9.2",
+    "lodash": "^3.9.3",
     "tolerance": "1.0.0"
   },
   "devDependencies": {
