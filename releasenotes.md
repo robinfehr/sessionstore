@@ -1,3 +1,6 @@
+#### v1.1.0
+- session expiration comes from cookie now
+
 #### v1.0.6
 - added mongodb driver 2.x support
 

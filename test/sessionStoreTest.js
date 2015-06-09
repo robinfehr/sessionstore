@@ -57,7 +57,7 @@ describe('SessionStore', function() {
           });
         }).to.throwError();
       });
-      
+
     });
 
     describe('with options containing a type property with the value of', function() {
@@ -82,7 +82,7 @@ describe('SessionStore', function() {
               ss.once('connect', done);
 
             });
-          
+
             it('it should return with the correct store', function() {
 
               ss = sessionStore.createSessionStore({ type: type });
@@ -104,7 +104,7 @@ describe('SessionStore', function() {
             afterEach(function(done) {
               ss.disconnect(done);
             });
-          
+
             it('it should return with the correct store', function(done) {
 
               sessionStore.createSessionStore({ type: type }, function(err, resSS) {
@@ -118,7 +118,7 @@ describe('SessionStore', function() {
           });
 
           describe('having connected', function() {
-          
+
             describe('calling disconnect', function() {
 
               beforeEach(function(done) {
@@ -141,7 +141,7 @@ describe('SessionStore', function() {
 
                 ss.once('disconnect', done);
                 ss.disconnect();
-                
+
               });
 
             });
@@ -159,25 +159,51 @@ describe('SessionStore', function() {
 
                 // #set()
                 ss.set('123', { cookie: { maxAge: 2000 }, name: 'joe' }, function(err) {
-                  expect(err).not.to.be.ok(null);
+                  expect(err).not.to.be.ok();
 
                   // #get()
                   ss.get('123', function(err, data) {
-                    expect(err).not.to.be.ok(null);
+                    expect(err).not.to.be.ok();
                     expect(data.name).to.be('joe');
 
                     // #set()
                     ss.set('123', { cookie: { maxAge: 2000 }, name: 'jimmy' }, function(err) {
-                      expect(err).not.to.be.ok(null);
+                      expect(err).not.to.be.ok();
 
                       // #get()
                       ss.get('123', function(err, data) {
-                        expect(err).not.to.be.ok(null);
+                        expect(err).not.to.be.ok();
                         expect(data.name).to.be('jimmy');
                         done();
                       });
 
                     });
+
+                  });
+
+                });
+
+              });
+
+              it('it should expire correctly', function(done) {
+
+                // #set()
+                ss.set('123shouldExpire', { cookie: { expires: new Date(Date.now() + 200) }, name: 'joe' }, function(err) {
+                  expect(err).not.to.be.ok();
+
+                  // #get()
+                  ss.get('123shouldExpire', function(err, data) {
+                    expect(err).not.to.be.ok();
+                    expect(data.name).to.be('joe');
+
+                    setTimeout(function () {
+                      ss.get('123shouldExpire', function(err, data) {
+                        expect(err).not.to.be.ok();
+                        expect(data).not.to.be.ok();
+
+                        done();
+                      });
+                    }, 1001);
 
                   });
 
@@ -192,11 +218,11 @@ describe('SessionStore', function() {
                   ss.set('123', { cookie: { maxAge: 2000 }, name: 'gugus' }, function(err) {
 
                     ss.destroy('123', function(err) {
-                      expect(err).not.to.be.ok(null);
+                      expect(err).not.to.be.ok();
 
                       ss.get('123', function(err, result) {
-                        expect(err).not.to.be.ok(null);
-                        expect(result).not.to.be.ok(null);
+                        expect(err).not.to.be.ok();
+                        expect(result).not.to.be.ok();
                         done();
                       });
 

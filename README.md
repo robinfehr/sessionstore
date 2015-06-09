@@ -35,8 +35,6 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
             port: 27017,               // optional
             dbName: 'sessionDb',       // optional
             collectionName: 'sessions',// optional
-            reapInterval: 600000,      // optional
-            maxAge: 1000 * 60 * 60 * 2,// optional
             timeout: 10000             // optional
         })
     }));
@@ -53,8 +51,6 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
             type: 'tingodb',
             dbPath: __dirname + '/',   // optional
             collectionName: 'sessions',// optional
-            reapInterval: 600000,      // optional
-            maxAge: 1000 * 60 * 60 * 2,// optional
             timeout: 10000             // optional
         })
     }));
@@ -90,7 +86,6 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
             host: 'localhost',         // optional
             port: 6379,                // optional
             prefix: 'sess',            // optional
-            ttl: 804600,               // optional
             timeout: 10000             // optional
         })
     }));
@@ -108,7 +103,6 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
             host: 'localhost',         // optional
             port: 11211,               // optional
             prefix: 'sess',            // optional
-            expires: 80,               // optional
             retries: 2,                // optional
             failover: false,           // optional
             failoverTime: 60,          // optional
