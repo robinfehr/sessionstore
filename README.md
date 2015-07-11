@@ -141,6 +141,7 @@ Currently these databases are supported:
 4. tingodb ([tingodb] (https://github.com/sergeyksv/tingodb))
 5. redis ([redis] (https://github.com/mranney/node_redis))
 6. memcached ([memjs] (https://github.com/alevy/memjs))
+7. elasticsearch ([elasticsearch] (https://github.com/elastic/elasticsearch-js))
 
 
 # License

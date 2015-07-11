@@ -62,7 +62,7 @@ describe('SessionStore', function() {
 
     describe('with options containing a type property with the value of', function() {
 
-      var types = ['inmemory', 'mongodb', 'tingodb', 'redis', 'memcached', 'couchdb'];
+      var types = ['inmemory', 'mongodb', 'tingodb', 'redis', 'memcached', 'couchdb', 'elasticsearch'];
 
       types.forEach(function(type) {
 
@@ -91,7 +91,6 @@ describe('SessionStore', function() {
               expect(ss.get).to.be.a('function');
               expect(ss.destroy).to.be.a('function');
               expect(ss.clear).to.be.a('function');
-              expect(ss.length).to.be.a('function');
               expect(ss.connect).to.be.a('function');
               expect(ss.disconnect).to.be.a('function');
 

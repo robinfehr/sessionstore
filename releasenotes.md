@@ -1,3 +1,6 @@
+#### v1.2.0
+- added elasticsearch support
+
 #### v1.1.0
 - session expiration comes from cookie now
 

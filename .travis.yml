@@ -5,6 +5,7 @@ services:
   - memcached
   - mongodb
   - couchdb
+  - elasticsearch
 
 language: node_js
 node_js:
