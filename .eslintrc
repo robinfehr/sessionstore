@@ -76,7 +76,7 @@ rules:
   no-wrap-func: 0
   comma-dangle: 0
   no-extra-semi: 0
-  no-use-before-define: nofunc
+  no-use-before-define: [0, "nofunc"]
 
   # AUTOMATED BY EDITORCONFIG
   eol-last: 0
