@@ -14,11 +14,13 @@
     "async": "1.4.0",
     "jsondate": "0.0.1",
     "lodash": "3.10.0",
+    "parent-require": "1.0.0",
     "tolerance": "1.0.0"
   },
   "devDependencies": {
     "cradle": ">=0.2.7",
     "elasticsearch": "^5.0.0",
+    "eslint": "^0.24.1",
     "expect.js": ">= 0.1.2",
     "express": ">= 2.5.0",
     "express-session": ">= 1.0.0",

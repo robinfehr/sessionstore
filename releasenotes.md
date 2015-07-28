@@ -1,3 +1,6 @@
+#### v1.2.4
+- optimization for `npm link`'ed development
+
 #### v1.2.3
 - added elasticsearch support
 
