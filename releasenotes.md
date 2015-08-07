@@ -1,3 +1,6 @@
+#### v1.2.5
+- redis: implemented touch
+
 #### v1.2.4
 - optimization for `npm link`'ed development
 
