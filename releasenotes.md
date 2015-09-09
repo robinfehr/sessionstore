@@ -1,3 +1,6 @@
+#### v1.2.6
+- mongodb: give possibility to use authSource
+
 #### v1.2.5
 - redis: implemented touch
 
