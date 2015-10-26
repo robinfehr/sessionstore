@@ -11,7 +11,7 @@
     "lib": "./lib"
   },
   "dependencies": {
-    "async": "^1.5.0",
+    "async": "1.5.0",
     "jsondate": "0.0.1",
     "lodash": "3.10.1",
     "parent-require": "1.0.0",
