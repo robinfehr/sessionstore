@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "cradle": ">=0.2.7",
-    "elasticsearch": ">=5.0.0",
+    "elasticsearch": "8.x.x",
     "eslint": ">=1.0.0",
     "expect.js": ">= 0.1.2",
     "express": ">= 2.5.0",
