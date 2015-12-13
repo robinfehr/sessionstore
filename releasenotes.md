@@ -1,3 +1,6 @@
+### [v1.2.8](https://github.com/adrai/sessionstore/compare/v1.2.7...v1.2.8)
+- mongodb: added optional heartbeat
+
 ### [v1.2.7](https://github.com/adrai/sessionstore/compare/v1.2.6...v1.2.7)
 - couchdb: fixed undefined is not function issue for expires [#28](https://github.com/adrai/sessionstore/issues/28) thanks to [priyanknarvekar](https://github.com/priyanknarvekar)
 
