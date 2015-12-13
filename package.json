@@ -27,7 +27,7 @@
     "memjs": ">= 0.8.4",
     "mocha": ">= 1.0.1",
     "mongodb": ">= 1.x",
-    "redis": ">= 0.10.1",
+    "redis": "2.3.x >= 0.10.1",
     "tingodb": ">= 0.0.1"
   },
   "description": "Sessionstore is a node.js module for multiple databases. It can be very useful if you work with express or connect.",
