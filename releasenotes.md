@@ -1,3 +1,6 @@
+### [v1.2.9](https://github.com/adrai/sessionstore/compare/v1.2.8...v1.2.9)
+- redis: fix for new redis lib
+
 ### [v1.2.8](https://github.com/adrai/sessionstore/compare/v1.2.7...v1.2.8)
 - mongodb: added optional heartbeat
 
