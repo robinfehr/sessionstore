@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "cradle": ">=0.2.7",
-    "elasticsearch": "8.x.x",
+    "elasticsearch": "^10.0.1",
     "eslint": ">=1.0.0",
     "expect.js": ">= 0.1.2",
     "express": ">= 2.5.0",
@@ -27,7 +27,7 @@
     "memjs": ">= 0.8.4",
     "mocha": ">= 1.0.1",
     "mongodb": ">= 1.x",
-    "redis": "2.3.x >= 0.10.1",
+    "redis": "^2.4.2",
     "tingodb": ">= 0.0.1"
   },
   "description": "Sessionstore is a node.js module for multiple databases. It can be very useful if you work with express or connect.",
