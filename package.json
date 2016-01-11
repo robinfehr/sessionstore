@@ -11,7 +11,7 @@
     "lib": "./lib"
   },
   "dependencies": {
-    "async": "1.5.1",
+    "async": "^1.5.2",
     "jsondate": "0.0.1",
     "lodash": "3.10.1",
     "parent-require": "1.0.0",
@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "cradle": ">=0.2.7",
-    "elasticsearch": "8.x.x",
+    "elasticsearch": "^10.1.2",
     "eslint": ">=1.0.0",
     "expect.js": ">= 0.1.2",
     "express": ">= 2.5.0",
