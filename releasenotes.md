@@ -1,4 +1,4 @@
-### [v1.2.10](https://github.com/adrai/sessionstore/compare/v1.2.9...v1.2.10)
+### [v1.2.11](https://github.com/adrai/sessionstore/compare/v1.2.9...v1.2.11)
 - some updates
 
 ### [v1.2.9](https://github.com/adrai/sessionstore/compare/v1.2.8...v1.2.9)
