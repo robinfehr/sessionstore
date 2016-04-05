@@ -1,3 +1,6 @@
+### [v1.2.12](https://github.com/adrai/sessionstore/compare/v1.2.11...v1.2.12)
+- redis: added optional heartbeat
+
 ### [v1.2.11](https://github.com/adrai/sessionstore/compare/v1.2.9...v1.2.11)
 - some updates
 
