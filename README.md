@@ -39,6 +39,7 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
             // authSource: 'authedicationDatabase',        // optional
       	    // username: 'technicalDbUser',                // optional
       	    // password: 'secret'                          // optional
+            // url: 'mongodb://user:pass@host:port/db?opts // optional
         })
     }));
 
