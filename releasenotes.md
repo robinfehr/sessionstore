@@ -1,3 +1,6 @@
+### [v1.2.15](https://github.com/adrai/sessionstore/compare/v1.2.14...v1.2.15)
+- redis, mongodb: call disconnect on ping error
+
 ### [v1.2.14](https://github.com/adrai/sessionstore/compare/v1.2.13...v1.2.14)
 - Support mongo connection string
 
