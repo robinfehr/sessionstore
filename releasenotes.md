@@ -1,4 +1,4 @@
-### [v1.2.17](https://github.com/adrai/sessionstore/compare/v1.2.16...v1.2.17)
+### [v1.2.18](https://github.com/adrai/sessionstore/compare/v1.2.16...v1.2.18)
 - fix for new mongodb driver
 
 ### [v1.2.16](https://github.com/adrai/sessionstore/compare/v1.2.15...v1.2.16)
