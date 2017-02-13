@@ -1,3 +1,6 @@
+### [v1.2.17](https://github.com/adrai/sessionstore/compare/v1.2.16...v1.2.17)
+- fix for new mongodb driver
+
 ### [v1.2.16](https://github.com/adrai/sessionstore/compare/v1.2.15...v1.2.16)
 - recover elasticsearch connection after temp ping error [#39](https://github.com/adrai/sessionstore/issues/39) [#40](https://github.com/adrai/sessionstore/pull/40) thanks to [ewjmulder](https://github.com/ewjmulder)
 
