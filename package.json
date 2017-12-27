@@ -24,7 +24,7 @@
     "expect.js": ">= 0.1.2",
     "express": ">= 2.5.0",
     "express-session": ">= 1.0.0",
-    "memjs": ">= 0.8.4",
+    "memjs": "0.x.x",
     "mocha": "3.x.x",
     "mongodb": "2.1.x",
     "redis": ">= 0.10.1",
