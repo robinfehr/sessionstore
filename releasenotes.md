@@ -1,3 +1,6 @@
+### [v1.3.0](https://github.com/adrai/sessionstore/compare/v1.2.18...v1.3.0)
+- compatibility with new mongodb version (3.x)
+
 ### [v1.2.18](https://github.com/adrai/sessionstore/compare/v1.2.16...v1.2.18)
 - fix for new mongodb driver
 
