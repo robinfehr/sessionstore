@@ -1,3 +1,6 @@
+### [v1.3.1](https://github.com/adrai/sessionstore/compare/v1.3.0...v1.3.1)
+- remove deprecated option max_attempts from redis options
+
 ### [v1.3.0](https://github.com/adrai/sessionstore/compare/v1.2.18...v1.3.0)
 - compatibility with new mongodb version (3.x)
 
