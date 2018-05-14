@@ -1,3 +1,6 @@
+### [v1.3.2](https://github.com/adrai/sessionstore/compare/v1.3.1...v1.3.2)
+- update mocha and loadash libraries, regarding npm audit vulnerabilities
+
 ### [v1.3.1](https://github.com/adrai/sessionstore/compare/v1.3.0...v1.3.1)
 - remove deprecated option max_attempts from redis options
 
