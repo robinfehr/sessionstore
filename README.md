@@ -162,7 +162,7 @@ Currently these databases are supported:
 2. mongodb ([node-mongodb-native] (https://github.com/mongodb/node-mongodb-native))
 3. couchdb ([cradle] (https://github.com/cloudhead/cradle))
 4. tingodb ([tingodb] (https://github.com/sergeyksv/tingodb))
-5. redis ([redis] (https://github.com/mranney/node_redis))
+5. redis ([ioredis] (https://github.com/luin/ioredis))
 6. memcached ([memjs] (https://github.com/alevy/memjs))
 7. elasticsearch ([elasticsearch] (https://github.com/elastic/elasticsearch-js))
 

@@ -24,10 +24,10 @@
     "expect.js": ">= 0.1.2",
     "express": ">= 2.5.0",
     "express-session": ">= 1.0.0",
+    "ioredis": ">= 3.0.0",
     "memjs": "0.x.x",
     "mocha": ">= 5.1.1",
     "mongodb": "2.1.x",
-    "redis": ">= 0.10.1",
     "tingodb": ">= 0.0.1"
   },
   "description": "Sessionstore is a node.js module for multiple databases. It can be very useful if you work with express or connect.",

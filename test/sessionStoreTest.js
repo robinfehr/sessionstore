@@ -62,7 +62,8 @@ describe('SessionStore', function() {
 
     describe('with options containing a type property with the value of', function() {
 
-      var types = ['inmemory', 'mongodb', 'tingodb', 'redis', 'memcached', 'couchdb'];
+      // var types = ['inmemory', 'mongodb', 'tingodb', 'redis', 'memcached', 'couchdb'];
+      var types = ['inmemory', 'redis'];
 
       types.forEach(function(type) {
 
