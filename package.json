@@ -25,7 +25,7 @@
     "express": ">= 2.5.0",
     "express-session": ">= 1.0.0",
     "memjs": "0.x.x",
-    "mocha": ">= 5.1.1",
+    "mocha": "3.x.x",
     "mongodb": "2.1.x",
     "redis": ">= 0.10.1",
     "tingodb": ">= 0.0.1"
