@@ -1,3 +1,6 @@
+### [v1.3.4](https://github.com/adrai/sessionstore/compare/v1.3.3...v1.3.44)
+- upgrade versions of lodash and async [#51](https://github.com/adrai/sessionstore/pull/51) thanks to [andrefbsantos](https://github.com/andrefbsantos)
+
 ### [v1.3.3](https://github.com/adrai/sessionstore/compare/v1.3.2...v1.3.3)
 - remove ttl parameter in elasticsearch driver
 
