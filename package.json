@@ -11,9 +11,9 @@
     "lib": "./lib"
   },
   "dependencies": {
-    "async": "2.6.0",
+    "async": "2.6.2",
     "jsondate": "0.0.1",
-    "lodash": "4.17.10",
+    "lodash": "4.17.11",
     "parent-require": "1.0.0",
     "tolerance": "1.0.0"
   },
