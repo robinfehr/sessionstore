@@ -1,4 +1,7 @@
-### [v1.3.4](https://github.com/adrai/sessionstore/compare/v1.3.3...v1.3.44)
+### [v1.3.5](https://github.com/adrai/sessionstore/compare/v1.3.4...v1.3.5)
+- mongodb: add ignoreConcurrency flag
+
+### [v1.3.4](https://github.com/adrai/sessionstore/compare/v1.3.3...v1.3.4)
 - upgrade versions of lodash and async [#51](https://github.com/adrai/sessionstore/pull/51) thanks to [andrefbsantos](https://github.com/andrefbsantos)
 
 ### [v1.3.3](https://github.com/adrai/sessionstore/compare/v1.3.2...v1.3.3)

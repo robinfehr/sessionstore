@@ -148,7 +148,7 @@ describe('SessionStore', function() {
             describe('using the store', function() {
 
               before(function(done) {
-                sessionStore.createSessionStore({ type: type }, function(err, resSS) {
+                sessionStore.createSessionStore({ type: type, ignoreConcurrency: true }, function(err, resSS) {
                   ss = resSS;
                   done();
                 });
@@ -203,6 +203,46 @@ describe('SessionStore', function() {
                         done();
                       });
                     }, 1001);
+
+                  });
+
+                });
+
+              });
+
+              describe('having concurrent requests', function() {
+
+                it('it should handle it correctly', function(done) {
+
+                  // #set()
+                  ss.set('my-session-1', { cookie: { maxAge: 2000 }, name: 'first' }, function(err) {
+                    expect(err).not.to.be.ok();
+
+                    // #get()
+                    ss.get('my-session-1', function(err, data) {
+                      expect(err).not.to.be.ok();
+                      expect(data.name).to.be('first');
+
+                      var sessionCopy = JSON.parse(JSON.stringify(data));
+                      sessionCopy.name = 'first changed';
+
+                      // #set()
+                      ss.set('my-session-1', sessionCopy, function(err) {
+                        expect(err).not.to.be.ok();
+
+                        sessionCopy = JSON.parse(JSON.stringify(data));
+                        sessionCopy.name = 'second changed';
+
+                        // #set()
+                        ss.set('my-session-1', sessionCopy, function(err) {
+                          // expect(err).to.be.ok(); // ignoreConcurrency
+                          expect(err).not.to.be.ok();
+
+                          done();
+                        });
+                      });
+
+                    });
 
                   });
 
