@@ -120,7 +120,27 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
         })
     }));
 
-## Connecting to elasticsearch
+## Connecting to elasticsearch (https://github.com/elastic/elasticsearch)
+
+    var sessionstore = require('sessionstore');
+
+    var express = require('express');
+    var app = express();
+
+    app.use(express.session({
+        store: sessionstore.createSessionStore({
+            type: '@elasticsearch',
+            host: 'localhost:9200',    // optional
+            prefix: '',                // optional
+            index: 'express',          // optional
+            typeName: 'session',       // optional
+            pingInterval: 1000,        // optional
+            timeout: 10000             // optional
+        })
+    }));
+
+
+## Connecting to elasticsearch legacy (https://github.com/elastic/elasticsearch-js-legacy)
 
     var sessionstore = require('sessionstore');
 
