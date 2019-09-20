@@ -124,7 +124,7 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
     app.use(express.session({
         store: sessionstore.createSessionStore({
             type: '@elasticsearch',
-            host: 'localhost:9200',    // optional
+            node: 'localhost:9200',    // optional
             prefix: '',                // optional
             index: 'express',          // optional
             typeName: 'session',       // optional
