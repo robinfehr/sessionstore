@@ -17,3 +17,4 @@ node_modules/**/*
 *.db
 
 dump.rdb
+package-lock.json
