@@ -1,3 +1,6 @@
+### [v1.3.6](https://github.com/adrai/sessionstore/compare/v1.3.5...v1.3.6)
+- mongodb: remove unwanted debug call
+
 ### [v1.3.5](https://github.com/adrai/sessionstore/compare/v1.3.4...v1.3.5)
 - mongodb: add ignoreConcurrency flag
 
