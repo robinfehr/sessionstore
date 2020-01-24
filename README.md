@@ -15,9 +15,10 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
 	var sessionstore = require('sessionstore');
 
     var express = require('express');
+    var expressSession = require('express-session');
     var app = express();
 
-    app.use(express.session({
+    app.use(expressSession({
         store: sessionstore.createSessionStore()
     }));
 
@@ -26,9 +27,10 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
     var sessionstore = require('sessionstore');
 
     var express = require('express');
+    var expressSession = require('express-session');
     var app = express();
 
-    app.use(express.session({
+    app.use(expressSession({
         store: sessionstore.createSessionStore({
             type: 'mongodb',
             host: 'localhost',         // optional
@@ -48,9 +50,10 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
     var sessionstore = require('sessionstore');
 
     var express = require('express');
+    var expressSession = require('express-session');
     var app = express();
 
-    app.use(express.session({
+    app.use(expressSession({
         store: sessionstore.createSessionStore({
             type: 'tingodb',
             dbPath: __dirname + '/',   // optional
@@ -64,9 +67,10 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
     var sessionstore = require('sessionstore');
 
     var express = require('express');
+    var expressSession = require('express-session');
     var app = express();
 
-    app.use(express.session({
+    app.use(expressSession({
         store: sessionstore.createSessionStore({
             type: 'couchdb',
             host: 'http://localhost',  // optional
@@ -82,9 +86,10 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
     var sessionstore = require('sessionstore');
 
     var express = require('express');
+    var expressSession = require('express-session');
     var app = express();
 
-    app.use(express.session({
+    app.use(expressSession({
         store: sessionstore.createSessionStore({
             type: 'redis',
             host: 'localhost',         // optional
@@ -99,9 +104,10 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
     var sessionstore = require('sessionstore');
 
     var express = require('express');
+    var expressSession = require('express-session');
     var app = express();
 
-    app.use(express.session({
+    app.use(expressSession({
         store: sessionstore.createSessionStore({
             type: 'memcached',
             host: 'localhost',         // optional
@@ -119,9 +125,10 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
     var sessionstore = require('sessionstore');
 
     var express = require('express');
+    var expressSession = require('express-session');
     var app = express();
 
-    app.use(express.session({
+    app.use(expressSession({
         store: sessionstore.createSessionStore({
             type: 'elasticsearch',
             host: 'localhost:9200',    // optional
@@ -138,14 +145,14 @@ Sessionstore is a node.js module for multiple databases. It can be very useful i
     var ss = sessionstore.createSessionStore({ type: 'mongodb' }, function(err, ss) {
         console.log('hello from callback');
         // use store here...
-        // app.use(express.session({
+        // app.use(expressSession({
         //     store: ss
         // }));
     });
     ss.on('connect', function() {
         console.log('hello from event');
         // or here
-        // app.use(express.session({
+        // app.use(expressSession({
         //     store: ss
         // }));
     });
@@ -169,7 +176,7 @@ Currently these databases are supported:
 
 # License
 
-Copyright (c) 2019 Adriano Raiano
+Copyright (c) 2020 Adriano Raiano
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
