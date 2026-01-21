@@ -1,3 +1,6 @@
+### [v1.3.8](https://github.com/adrai/sessionstore/compare/v1.3.7...v1.3.8)
+- update lodash dependency
+
 ### [v1.3.7](https://github.com/adrai/sessionstore/compare/v1.3.6...v1.3.7)
 - mognodb: default for useUnifiedTopology [#55](https://github.com/adrai/sessionstore/pull/55) thanks to [rohantarai](https://github.com/rohantarai)
 

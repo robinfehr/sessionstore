@@ -1,6 +1,6 @@
 # Introduction
 
-[![travis](https://img.shields.io/travis/adrai/sessionstore.svg)](https://travis-ci.org/adrai/sessionstore) [![npm](https://img.shields.io/npm/v/sessionstore.svg)](https://npmjs.org/package/sessionstore)
+[![npm](https://img.shields.io/npm/v/sessionstore.svg)](https://npmjs.org/package/sessionstore)
 
 Sessionstore is a node.js module for multiple databases. It can be very useful if you work with express or connect.
 
